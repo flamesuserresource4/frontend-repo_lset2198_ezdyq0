@@ -1,28 +1,36 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Nav() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200/70 bg-white/70 backdrop-blur dark:bg-gray-900/40">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <a href="#home" className="font-bold">Sathvik Nagesh</a>
+        <nav className="flex items-center gap-4 text-sm">
+          <a href="#projects" className="rounded-md px-3 py-1.5 hover:bg-gray-900/5">Projects</a>
+          <a href="#experience" className="rounded-md px-3 py-1.5 hover:bg-gray-900/5">Experience</a>
+          <a href="#contact" className="rounded-md px-3 py-1.5 hover:bg-gray-900/5">Contact</a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white via-white to-blue-50 text-gray-900">
+      <Nav />
+      <main>
+        <Hero />
+        <Projects />
+        <Experience />
+        <Contact />
+      </main>
+      <footer className="border-t border-gray-200/70 py-8 text-center text-sm text-gray-600">
+        © {new Date().getFullYear()} Sathvik Nagesh · Built with care.
+      </footer>
+    </div>
+  );
+}
